@@ -1,0 +1,25 @@
+# application port
+server:
+  port: 8080
+
+# base URL
+api:
+  endpoints:
+    base-url: /store
+
+# database config
+spring:
+  h2:
+    console:
+      enabled: true
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: create
+  datasource:
+    url: jdbc:h2:mem:store
+
+# swagger UI docs
+springdoc:
+  swagger-ui:
+    path: /docs
