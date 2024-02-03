@@ -9,6 +9,12 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class CustomExceptions {
 
+    @ExceptionHandler(value = BookNotFoundException.class)
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
+    public Result bookNotFound(BookNotFoundException ex) {
+        return new Result(false, HttpStatus.NOT_FOUND, ex.getMessage());
+    }
+
     @ExceptionHandler(value = CustomerNotFoundException.class)
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
     public Result customerNotFound(CustomerNotFoundException ex) {
